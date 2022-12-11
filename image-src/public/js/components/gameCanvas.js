@@ -9,7 +9,7 @@ const BOARD_SIZE_PX = NUM_SIDE_EDGES * TILE_LENGTH_PX;
 
 const PI = Math.PI;
 
-/** Class managing the gameboard canvas */
+/** Class managing a gameboard canvas */
 class gameCanvas {
     #canvasElement;  // DOM object
     #context;  // context of DOM object
@@ -43,7 +43,7 @@ class gameCanvas {
             throw("gameCanvas drawBoard method tried to draw a board twice!");
         }
         this.#context.beginPath();
-        this.#context.strokeStyle = 'black';
+        this.#context.strokeStyle = "black";
         for(let i = 0; i < NUM_SIDE_EDGES; i++) {
             this.#context.moveTo(PIECE_RADIUS_PX + TILE_LENGTH_PX*i, 
                 PIECE_RADIUS_PX);
