@@ -3,7 +3,7 @@ import { NUM_ADJ_TO_WIN, NUM_SIDE_EDGES } from "./abstract/constants.js";
 import { validateIsPieceColor, validateIsPieceCoordinate } from 
 "./abstract/validator.js";
 
-/** Class representing a game board */
+/** Class representing a game board. */
 class gameBoard {
     #boardState = [];
     constructor() {

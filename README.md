@@ -9,7 +9,7 @@ This is a solo continuation of [this](https://github.com/Ezuharad/CSE201-Final-P
 - Algorithms for game state calculations adapted from [Longze Li](https://github.com/LongzeLi)  
 - Additional support provided by [Bolin Chen](https://github.com/SharkCh1L1) and [Shaobo Su](https://github.com/Shaobo-sus9)
 
-Installation Instructions for
+Installation Instructions
 ---
 ### Requirements
 To get started you will need the following:
@@ -18,8 +18,8 @@ To get started you will need the following:
 - [Deno](https://deno.land/manual@v1.28.3/getting_started/installation) (last tested using Deno v1.27.2, v8 engine v10.8.164.4, and Typescript v4.8.3)
 - [Sass](https://sass-lang.com/install) (last tested using dart sass v1.56.1)
 
-### Installation (Windows 10)
-Once these have been installed __and added to your path__, invoke windows powershell and execute the command:
+### Installation
+Once these have been installed __and added to your path__, invoke your shell of choice and execute the command:
 > git clone https://github.com/Ezuharad/Gomoku-Web-Game \<download directory>
 
 After executing the above command git should begin downloading from the github repo.  
@@ -41,11 +41,11 @@ To run your docker container, simply execute:
 
 This should run your new image as a docker container and allow you to access it with your browser of choice.
 
-### Accessing the Game (Windows 10)
-To access the game, first open up powershell and execute:
+### Accessing the Game
+To access the game, first open up powershell and execute:  
 > ipconfig
 
-From here you should see information about your computer's IP address. Locate the one labeled "IPv4 Address" for your network of choice. Once you have found this, enter the ip address followed by the port number you bound the docker process to in your browser of choice.
+From here you should see information about your computer's IP address. Locate the one labeled "IPv4 Address" for your network of choice. Once you have found this, enter the ip address followed by the port number you bound the docker process to in your browser of choice
 
 ### Deactivating the Container
 To deactivate your docker container, execute: 

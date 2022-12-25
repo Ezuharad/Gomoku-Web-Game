@@ -10,5 +10,5 @@ RUN chown deno $APP_DIR
 COPY image-src .
 USER deno
 
-CMD deno run --allow-net --allow-read --allow-write server.ts
+CMD deno run --allow-net --allow-read --allow-write server.ts $PORT
 EXPOSE $PORT

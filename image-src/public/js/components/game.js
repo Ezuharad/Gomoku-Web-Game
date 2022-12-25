@@ -9,7 +9,7 @@ const GAME_CANVAS_ELEMENT = document.getElementById("game_canvas");
 const PLAYER_TIMER_ELEMENT = document.getElementById("player_timer_div");
 const OPPONENT_TIMER_ELEMENT = document.getElementById("opponent_timer_div");
 
-/** Class managing a Gomoku game */
+/** Class managing a Gomoku game. */
 class game {
     #currColor = "black";
     #GB;

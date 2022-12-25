@@ -9,7 +9,7 @@ const BOARD_SIZE_PX = NUM_SIDE_EDGES * TILE_LENGTH_PX;
 
 const PI = Math.PI;
 
-/** Class managing a gameboard canvas */
+/** Class managing a gameboard canvas. */
 class gameCanvas {
     #canvasElement;  // DOM object
     #context;  // context of DOM object
