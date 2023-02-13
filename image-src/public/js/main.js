@@ -1,7 +1,7 @@
 import { game } from "./components/game.js";
 
 function main() {
-    const _G = new game();
+    const _currentGame = new game();
 }
 
 window.onload = main();
