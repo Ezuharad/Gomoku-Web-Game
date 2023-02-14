@@ -23,7 +23,8 @@ app.use(async (Context, next) => {
 app.use(async (Context, next) => {
   await next();
   if(Context.response.status === 404) {
-    Context.response.body = "HELLO";
+    const path = `${Deno.cwd()}/public/error404.html`
+    Context.response.body = await Deno.open(path);
     Context.response.type = "text/html";
   }
 });
