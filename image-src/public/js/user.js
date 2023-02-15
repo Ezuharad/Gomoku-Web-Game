@@ -74,7 +74,7 @@ class user {
             this.#myTurn = false;
         }
         else {
-            this.#myTurn = false;
+            this.#myTurn = true;
         }
         return true;
     }

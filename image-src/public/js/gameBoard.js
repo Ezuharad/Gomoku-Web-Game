@@ -1,7 +1,9 @@
 export { gameBoard };
-import { NUM_ADJ_TO_WIN, NUM_SIDE_EDGES } from "./abstract/constants.js";
+import { NUM_SIDE_EDGES } from "./abstract/constants.js";
 import { validateIsPieceColor, validateIsPieceCoordinate } from 
 "./abstract/validator.js";
+
+const NUM_ADJ_TO_WIN = 5;
 
 /** Class representing a game board. */
 class gameBoard {

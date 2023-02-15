@@ -13,20 +13,16 @@ const app = new Application();
 
 // Logger
 app.use(async (Context, next) => {
-  await next();
-  const rt = Context.response.headers.get("X-Response-Time");
-  const method = Context.request.method;
-  console.log(`${method} requested at ${Context.request.url} took ${rt}`);
-});
+  const receiveTime = Date.now();
+  const url = Context.request.url;
 
-// 404 Page
-app.use(async (Context, next) => {
   await next();
-  if(Context.response.status === 404) {
-    const path = `${Deno.cwd()}/public/error404.html`
-    Context.response.body = await Deno.open(path);
-    Context.response.type = "text/html";
-  }
+
+  const sendTime = Date.now();
+  const returnTime = sendTime - receiveTime;
+  const method = Context.request.method;
+
+  console.log(`${method} requested at ${url} took ${returnTime}ms`);
 });
 
 // Enable routes from API_ROUTER
@@ -36,24 +32,26 @@ app.use(GAME_ROUTER.allowedMethods());
 // Serve static files
 app.use(async (Context) => {
   const requestUrl = Context.request.url.pathname;
-  const filePath = (requestUrl === "/" ? "/index.html" : requestUrl);  // Index
-  const file = `${Deno.cwd()}/public${filePath}`;
+  const file = `${Deno.cwd()}/public${requestUrl}`;
   
   try {
-    const data = await Deno.stat(file);
-    if(data.isFile) {
-      Context.response.body = await Deno.open(file);
-    }
+    await Deno.stat(file);
   }
-  catch(_error) {  // Always will result in 404 error
-    console.error(`An unexpected error occurred: ${_error}`);
+  catch(error) {  // Always will result in 404 error
+    console.error(`An unexpected error occurred: ${error.name}`);
+    Context.request.url.pathname = "/error404.html";
     Context.response.status = 404;
   }
+
+  await Context.send({
+    root: `${Deno.cwd()}/public`,
+    index: "index.html"
+  })
 });
 
 // Server start listener
 app.addEventListener("listen", () => {
-  console.log(`Listening on localhost: ${PORT}`);
+  console.log(`Listening on localhost at Docker port ${PORT}`);
 });
 
 // Server error listener

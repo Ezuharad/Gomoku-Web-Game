@@ -54,7 +54,7 @@ class game {
         if(!user.currentTurn()) {  // Check if the user can make a move
             return false;
         }
-        if(!this.#GB.placePiece(xPosition, yPosition)) {  // Check board
+        if(!this.#GB.placePiece(user.getColor(), xPosition, yPosition)) {  // Check board
             return false;
         }
         this.#GC.drawPiece(user.getColor(), xPosition, yPosition)  // TODO: FIXME!
